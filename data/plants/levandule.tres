@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PlantDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/plant_def.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"levandule"
+display_name = "Levandule"
+border_color = Color(0.55, 0.4, 0.85, 1)
+growth_days = 5
+light_need = 2
+water_interval_days = 3
+allowed_rows = Array[int]([])
+score_value = 12

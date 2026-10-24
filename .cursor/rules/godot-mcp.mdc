@@ -1,0 +1,31 @@
+---
+description: Prefer Godot MCP for editor, scenes, run/debug, and project ops
+alwaysApply: true
+---
+
+# Godot MCP (required when possible)
+
+This is a **Godot 4.7+** project. Prefer the **`user-godot`** MCP tools over hand-editing `.tscn`/project files or raw CLI when a tool covers the task.
+
+## Prefer MCP for
+
+| Task | Tool |
+|------|------|
+| Version / project metadata | `get_godot_version`, `get_project_info`, `list_projects` |
+| Open editor | `launch_editor` |
+| Create / edit scenes & nodes | `create_scene`, `add_node`, `save_scene`, `load_sprite` |
+| Run / stop / debug output | `run_project`, `stop_project`, `get_debug_output` |
+| UIDs (4.4+) | `get_uid`, `update_project_uids` |
+
+Always pass `projectPath` as the workspace root (`/home/jura/greenhouse` or `.`).
+
+## When MCP is not enough
+
+- GDScript / `.gd` logic, Resources (`.tres`), autoloads config: edit files directly.
+- After meaningful scene or gameplay changes, **`run_project`** and check `get_debug_output`.
+- For architecture, composition, performance, or visual QA, follow the **godot-master** skill.
+
+## Do not
+
+- Invent scene XML by hand when `create_scene` / `add_node` can do it.
+- Leave a running game session hanging — call `stop_project` when done testing.

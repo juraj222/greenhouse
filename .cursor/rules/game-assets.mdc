@@ -1,0 +1,29 @@
+---
+description: Generate matching art when adding scene parts; ask if unsure
+alwaysApply: true
+---
+
+# Game assets with new scene parts
+
+Whenever a **new visible part of a game scene** is created (plant slot, card, UI chrome, pot, greenhouse frame, etc.), **generate a dedicated asset** for it in the same turn — do not leave placeholder-only geometry as the final look.
+
+## Workflow
+
+1. Identify what needs art (sprite, icon, background slice, etc.).
+2. **If unsure** what asset, subject, framing, or size is needed → **ask the user** before generating.
+3. Match **style of existing project assets** (palette, line weight, lighting, hand-drawn vs flat). Inspect files under `assets/` (or wherever art lives) and pass strong references via `reference_image_paths` when generating.
+4. If no game assets exist yet, follow art direction in `dev_plan.md` and style of files under `ref/` (target mockups only). Then keep later assets consistent with shipped `assets/`.
+5. Save into `assets/...`, wire into the scene (prefer Godot MCP `load_sprite` when applicable), and note non-obvious art choices in `dev_plan.md`.
+
+## Style rules
+
+- Same visual language as siblings already in the project — no one-off realism, neon UI, or unrelated genre looks.
+- Transparent backgrounds for props/characters unless the piece is a full backdrop.
+- Prefer one clear subject per asset; avoid cluttered mockups.
+
+## Do not
+
+- **Never use `hud.png` or anything under `ref/` as a runtime game texture.** Those are target mockups / art bible only. Always generate or place real assets in `assets/`.
+- Ship a new gameplay-visible node without art when generation is possible.
+- Guess subject or style when ambiguous — ask first.
+- Ignore existing assets and invent a new look.

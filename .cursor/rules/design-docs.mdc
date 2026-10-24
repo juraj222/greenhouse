@@ -1,0 +1,41 @@
+---
+description: Log design choices in dev_plan.md; keep README.md current
+alwaysApply: true
+---
+
+# Design documentation
+
+## `dev_plan.md` — source of truth for design
+
+Record **every design choice** (mechanics, UX, art direction, tech architecture, rejected alternatives) in `dev_plan.md`.
+
+- Append under **Design decisions** with date and short rationale.
+- Prefer updating an existing decision over scattering duplicates.
+- Open questions stay in **Otevřené návrhové otázky** until resolved; then move the answer into Design decisions.
+- Do not bury decisions only in chat — if it affects the game, write it down.
+
+Example entry:
+
+```markdown
+### YYYY-MM-DD — Short title
+**Decision:** …
+**Why:** …
+**Rejected:** … (optional)
+```
+
+## `README.md` — short public snapshot
+
+Keep `README.md` a **short** description of what the project is right now (genre, core loop, tech).
+
+Update it when any of these change:
+
+- Core concept or genre framing
+- Primary mechanics or win condition
+- Engine / major tech stack
+- Playable status (prototype → vertical slice → etc.)
+
+Do **not** dump the full design doc into README — link or point to `dev_plan.md` for depth.
+
+## Language
+
+User-facing design prose in `dev_plan.md` / `README.md` stays in **Czech** unless the user asks otherwise. Agent rules stay in English.

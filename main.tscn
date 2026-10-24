@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://main.gd" id="1_main"]
+[ext_resource type="Script" path="res://greenhouse/greenhouse_view.gd" id="2_gh"]
+[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="3_hud"]
+[ext_resource type="Texture2D" path="res://assets/greenhouse/greenhouse_backdrop.jpg" id="4_bg"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="Backdrop" type="Sprite2D" parent="."]
+z_index = -10
+centered = true
+position = Vector2(768, 512)
+texture = ExtResource("4_bg")
+
+[node name="GreenhouseView" type="Node2D" parent="."]
+script = ExtResource("2_gh")
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]

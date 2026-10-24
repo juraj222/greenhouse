@@ -1,0 +1,100 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://ui/hud.gd" id="1_hud"]
+
+[node name="HUD" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_hud")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="StatusPanel" type="PanelContainer" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 28.0
+offset_top = 24.0
+offset_right = 320.0
+offset_bottom = 140.0
+
+[node name="StatusVBox" type="VBoxContainer" parent="Root/StatusPanel"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="DayLabel" type="Label" parent="Root/StatusPanel/StatusVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Den 1"
+
+[node name="ScoreLabel" type="Label" parent="Root/StatusPanel/StatusVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.95, 0.88, 0.45, 1)
+text = "Skóre 0"
+
+[node name="HintLabel" type="Label" parent="Root/StatusPanel/StatusVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.75, 0.82, 0.68, 1)
+autowrap_mode = 2
+text = "Žlutý slot = víc světla · červený rám = žízeň · zlatý = sklizeň"
+
+[node name="BottomBar" type="VBoxContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -210.0
+offset_right = -24.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="Actions" type="HBoxContainer" parent="Root/BottomBar"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 14
+
+[node name="HarvestButton" type="Button" parent="Root/BottomBar/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+text = "Sklidit připravené"
+
+[node name="EndDayButton" type="Button" parent="Root/BottomBar/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 40)
+layout_mode = 2
+text = "Ukončit den"
+
+[node name="PromptLabel" type="Label" parent="Root/BottomBar"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+theme_override_colors/font_color = Color(0.95, 0.96, 0.88, 1)
+horizontal_alignment = 1
+text = "Vyber kartu"
+
+[node name="HandScroll" type="ScrollContainer" parent="Root/BottomBar"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+horizontal_scroll_mode = 1
+vertical_scroll_mode = 0
+
+[node name="Hand" type="HBoxContainer" parent="Root/BottomBar/HandScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+theme_override_constants/separation = 12

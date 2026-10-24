@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PlantDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://data/plant_def.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"bazalka"
+display_name = "Bazalka"
+border_color = Color(0.2, 0.65, 0.55, 1)
+growth_days = 3
+light_need = 1
+water_interval_days = 1
+allowed_rows = Array[int]([])
+score_value = 7
